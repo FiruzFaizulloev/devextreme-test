@@ -17,14 +17,7 @@ export class UserService {
   }
 
   getTodos(id: number): Observable<ITodo[]> {
-    return this.http.get<ITodo[]>(apiPaths(id).todos)
-      .pipe(
-        map(todos => {
-          /*todos.forEach(todo => todo.completed = +todo.completed);
-          console.log(todos);*/
-          return todos;
-        })
-      );
+    return this.http.get<ITodo[]>(apiPaths(id).todos);
   }
 
   constructor(private http: HttpClient) { }
