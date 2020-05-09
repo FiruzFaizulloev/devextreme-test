@@ -1,0 +1,33 @@
+<div class="comments">
+  <h1>Todos</h1>
+
+  <dx-data-grid
+    [dataSource]="todos"
+    [showBorders]="true">
+    <dxo-sorting mode="multiple"></dxo-sorting>
+    <dxo-paging [pageSize]="5"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[5, 10, 20]"
+      [showInfo]="true">
+    </dxo-pager>
+
+    <dxi-column
+      dataField="id"
+      caption="ID"
+      [width]="70">
+    </dxi-column>
+
+    <dxi-column
+      dataField="title"
+      caption="Title">
+    </dxi-column>
+
+    <dxi-column
+      dataField="completed"
+      dataType="boolean"
+      caption="Completed"
+      [width]="100">
+    </dxi-column>
+  </dx-data-grid>
+</div>

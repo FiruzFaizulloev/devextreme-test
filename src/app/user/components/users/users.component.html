@@ -1,0 +1,23 @@
+<div class="post">
+  <h1>Users</h1>
+
+  <dx-data-grid
+    [dataSource]="users"
+    [hoverStateEnabled]="true"
+    [showBorders]="true"
+    (onRowClick)="onUserClick($event)"
+  >
+    <dxo-sorting mode="multiple"></dxo-sorting>
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-paging [pageSize]="5"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[5, 10, 20]"
+      [showInfo]="true">
+    </dxo-pager>
+    <dxi-column dataField="id" caption="ID" [width]="70"></dxi-column>
+    <dxi-column dataField="name" caption="Name"></dxi-column>
+    <dxi-column dataField="phone" caption="Phone"></dxi-column>
+    <dxi-column dataField="email" caption="E-mail"></dxi-column>
+  </dx-data-grid>
+</div>

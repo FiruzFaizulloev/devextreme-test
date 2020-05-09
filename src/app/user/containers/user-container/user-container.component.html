@@ -1,0 +1,9 @@
+<div class="container">
+  <app-users
+    [users]="users$ | async"
+    (userSelected)="getTodos($event)"
+  >
+  </app-users>
+
+  <app-todos [todos]="todos$ | async"></app-todos>
+</div>
