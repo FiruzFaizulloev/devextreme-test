@@ -8,6 +8,4 @@ import { ITodo } from '../../models';
 })
 export class TodosComponent {
   @Input() todos: ITodo[] = [];
-
-  constructor() { }
 }

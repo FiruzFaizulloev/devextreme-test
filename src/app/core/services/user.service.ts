@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { TokenService } from './token.service';
+
 import { apiPaths } from '../api.path';
 import {
   ITodo,
   IUser
 } from '../../user/models';
-import { map } from 'rxjs/operators';
 
 @Injectable()
 export class UserService {
@@ -20,5 +21,12 @@ export class UserService {
     return this.http.get<ITodo[]>(apiPaths(id).todos);
   }
 
-  constructor(private http: HttpClient) { }
+  isAuthenticated(): boolean {
+    return !!this.tokenService.getToken();
+  }
+
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService
+  ) {}
 }

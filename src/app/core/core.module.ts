@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderNavModule } from '../shared';
 
 import { UserService } from './services/user.service';
+import { PlatformService } from './services/platform.service';
+import { TokenService } from './services/token.service';
+
+import { AnonymousUserGuard } from './guards/anonymous-user.guard';
+import { AuthenticatedUserGuard } from './guards/authenticated-user.guard';
 
 @NgModule({
   imports: [
     BrowserModule,
-    HttpClientModule,
-    HeaderNavModule
+    HttpClientModule
   ],
   providers: [
-    UserService
-  ],
-  exports: [
-    HeaderNavModule
+    UserService,
+    PlatformService,
+    TokenService,
+    AnonymousUserGuard,
+    AuthenticatedUserGuard
   ]
 })
 

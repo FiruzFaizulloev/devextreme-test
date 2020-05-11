@@ -1,3 +1,4 @@
 export enum AppPaths {
-  USERS = 'users'
+  USERS = 'users',
+  LOGIN = 'log-in'
 }

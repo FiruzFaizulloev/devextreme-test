@@ -1,0 +1,44 @@
+<form class="log-in-form" (submit)="onFormSubmit($event)" autocomplete="off">
+  <h3 class="title">Sign in</h3>
+  <dx-form [formData]="userData"
+           [readOnly]="false"
+           [showColonAfterLabel]="true"
+  >
+    <dxi-item dataField="name">
+      <dxi-validation-rule
+        type="required"
+        message="Name is required">
+      </dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item dataField="email">
+      <dxi-validation-rule
+        type="required"
+        message="Email is required">
+      </dxi-validation-rule>
+      <dxi-validation-rule
+        type="email"
+        message="Email is invalid">
+      </dxi-validation-rule>
+    </dxi-item>
+    <dxi-item dataField="password"
+              [editorOptions]="{ mode: 'password' }">
+      <dxi-validation-rule
+        type="required"
+        message="Password is required">
+      </dxi-validation-rule>
+    </dxi-item>
+
+    <dxi-item
+      itemType="button"
+      horizontalAlignment="center"
+      [buttonOptions]="buttonOptions">
+    </dxi-item>
+  </dx-form>
+
+  <ul class="errors">
+    <li class="error-item" *ngFor="let error of errors">
+      {{error}}
+    </li>
+  </ul>
+</form>
